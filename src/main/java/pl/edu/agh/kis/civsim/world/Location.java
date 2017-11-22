@@ -25,4 +25,12 @@ public class Location {
     public void setyLoc(int yLoc) {
         this.yLoc = yLoc;
     }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "xLoc=" + xLoc +
+                ", yLoc=" + yLoc +
+                '}';
+    }
 }

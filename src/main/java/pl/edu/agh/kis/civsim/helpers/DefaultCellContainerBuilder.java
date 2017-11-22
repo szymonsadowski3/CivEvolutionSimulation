@@ -6,6 +6,7 @@ import pl.edu.agh.kis.civsim.world.Location;
 import processing.core.PImage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class DefaultCellContainerBuilder implements CellContainerBuilder {
@@ -19,8 +20,6 @@ public class DefaultCellContainerBuilder implements CellContainerBuilder {
             for (int y = 0; y < howManyCellsAlongAxisX; y++) {
                 int sx1 = cellSize * y;
                 int sy1 = cellSize * x;
-//                int sx2 = cellSize * y + cellSize;
-//                int sy2 = cellSize * y + cellSize;
                 results.add(new SquareRepresentation(sx1, sy1, cellSize));
             }
         }
@@ -29,15 +28,19 @@ public class DefaultCellContainerBuilder implements CellContainerBuilder {
     }
 
     @Override
-    public Map<Location, Cell> buildCellsContainer(PImage mapImg) {
+    public Map<Location, int[]> buildCellsContainer(PImage mapImg) {
+        Map<Location, int[]> result = new HashMap<Location, int[]>();
         int cellSize = CfgReader.getIntProperty("cellSizeInPixels");
 
         mapImg.loadPixels();
-        mapImg.get();
 
-        int[] mapPixels = mapImg.pixels;
+        ArrayList<SquareRepresentation> cells = generateCells(mapImg.width, mapImg.height, cellSize);
 
+        for(SquareRepresentation cell: cells) {
+            PImage imageChunk = mapImg.get(cell.getX(), cell.getY(), cell.getLength(), cell.getLength());
+            result.put(new Location(cell.getX(), cell.getY()), imageChunk.pixels);
+        }
 
-        return null;
+        return result;
     }
 }

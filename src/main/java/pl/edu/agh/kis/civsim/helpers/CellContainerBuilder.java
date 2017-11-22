@@ -7,5 +7,5 @@ import processing.core.PImage;
 import java.util.Map;
 
 public interface CellContainerBuilder {
-    Map<Location, Cell> buildCellsContainer(PImage mapImg);
+    Map<Location, int[]> buildCellsContainer(PImage mapImg);
 }

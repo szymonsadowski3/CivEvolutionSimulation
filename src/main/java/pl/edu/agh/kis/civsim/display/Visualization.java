@@ -1,8 +1,13 @@
 package pl.edu.agh.kis.civsim.display;
 
 import pl.edu.agh.kis.civsim.configreader.CfgReader;
+import pl.edu.agh.kis.civsim.helpers.DefaultCellContainerBuilder;
+import pl.edu.agh.kis.civsim.util.RGB;
+import pl.edu.agh.kis.civsim.world.Location;
 import processing.core.PApplet;
 import processing.core.PImage;
+
+import java.util.Map;
 
 public class Visualization extends PApplet {
     private int windowWidth;
@@ -38,5 +43,22 @@ public class Visualization extends PApplet {
     @Override
     public void draw(){
         image(this.mapImg, 0, 0);
+//        DefaultCellContainerBuilder defaultCellContainerBuilder = new DefaultCellContainerBuilder();
+//        Map<Location, int[]> result = defaultCellContainerBuilder.buildCellsContainer(this.mapImg);
+//        dispCellBuild(result);
+    }
+
+    public PImage getMapImg() {
+        return mapImg;
+    }
+
+    public void dispCellBuild(Map<Location, int[]> build) {
+        for (Map.Entry<Location, int[]> entry: build.entrySet()) {
+            System.out.println(convertToRgb(entry.getValue()[0]));
+        }
+    }
+
+    public RGB convertToRgb(int rgbFullInt) {
+        return new RGB(red(rgbFullInt), green(rgbFullInt), blue(rgbFullInt));
     }
 }
