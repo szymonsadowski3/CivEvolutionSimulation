@@ -1,6 +1,6 @@
 package pl.edu.agh.kis.civsim.display;
 
-import pl.edu.agh.kis.civsim.configreader.ConfigReaderSingleton;
+import pl.edu.agh.kis.civsim.configreader.CfgReader;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -11,10 +11,9 @@ public class Visualization extends PApplet {
     private String mapImgPath;
 
     {
-        ConfigReaderSingleton cfg = ConfigReaderSingleton.getInstance();
-        this.windowHeight = cfg.getIntProperty("windowHeight");
-        this.windowWidth = cfg.getIntProperty("windowWidth");
-        this.mapImgPath = cfg.getStringProperty("mapImg");
+        this.windowHeight = CfgReader.getIntProperty("windowHeight");
+        this.windowWidth = CfgReader.getIntProperty("windowWidth");
+        this.mapImgPath = CfgReader.getStringProperty("mapImg");
     }
 
     public void visualize() {
