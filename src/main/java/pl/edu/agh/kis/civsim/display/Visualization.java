@@ -8,7 +8,7 @@ import processing.core.PApplet;
 public class Visualization extends PApplet {
 
     public static void main(String[] args) {
-        PApplet.main("pl.edu.agh.kis.Visualization");
+        PApplet.main("pl.edu.agh.kis.civsim.display.Visualization");
     }
 
     @Override
