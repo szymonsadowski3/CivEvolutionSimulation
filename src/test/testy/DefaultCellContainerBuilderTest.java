@@ -1,4 +1,4 @@
-package java;
+package testy;
 
 import org.junit.Test;
 import pl.edu.agh.kis.civsim.helpers.DefaultCellContainerBuilder;
