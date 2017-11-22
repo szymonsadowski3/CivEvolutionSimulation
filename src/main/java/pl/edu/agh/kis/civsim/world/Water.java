@@ -8,8 +8,4 @@ public class Water implements Terrain {
         this.loc = loc;
     }
 
-    @Override
-    public boolean terraform() {
-        return false;
-    }
 }

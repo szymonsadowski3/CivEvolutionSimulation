@@ -3,6 +3,7 @@ package pl.edu.agh.kis.civsim.world;
 public class Land implements Terrain {
 
     private Location loc;
+
     private int fertility;
     private int development;
 
@@ -10,8 +11,6 @@ public class Land implements Terrain {
         this.loc = loc;
     }
 
-    @Override
-    public boolean terraform() {
-        return false;
+    public void develop() {
     }
 }

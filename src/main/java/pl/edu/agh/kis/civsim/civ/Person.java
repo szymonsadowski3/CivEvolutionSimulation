@@ -30,4 +30,17 @@ public class Person {
         //TODO: cokolwiek tu będzie, zobaczymy, pewnie usuniemy
     }
 
+    public void move(){
+        /*  TODO: po prostu przyklad tego jak to moze wygladac, jeszcze nie pewne.
+
+
+            newCell = getMigrationValue();
+            czy coś. funkcja ewaluacyjna zwraca cell który w sąsiedztwie wyciągnął największy value.
+            wtedy probujemy się do niego przenieść.
+            jeśli jest overpop, idziemy do drugiego najlepszego. (może funkcja ewaluacyjna będzie zwracać posortowaną tablicę
+            lub jednokierunkową listę celli?
+            jeśli drugim najlepszym jest teren na którym już jesteśmy, zostajemy, chyba że overpop, i tak dalej.
+         */
+    }
+
 }
