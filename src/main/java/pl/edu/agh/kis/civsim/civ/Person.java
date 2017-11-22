@@ -1,11 +1,13 @@
 package pl.edu.agh.kis.civsim.civ;
 
+import pl.edu.agh.kis.civsim.configreader.CfgReader;
+import pl.edu.agh.kis.civsim.world.Cell;
+
 public class Person {
 
+    private final int deathAge = CfgReader.getIntProperty("deathAge");
 
-    //tmp; bedzie wczytywany z configu
-    private final int DEATH_AGE = 10;
-
+    private Cell cell;
 
     private int age;
 
@@ -18,7 +20,7 @@ public class Person {
     }
 
     public void age() {
-        if(age > DEATH_AGE)
+        if(age > deathAge)
             die();
         else
             age++;
