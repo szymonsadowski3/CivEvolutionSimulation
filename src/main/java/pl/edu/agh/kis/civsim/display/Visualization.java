@@ -2,18 +2,19 @@ package pl.edu.agh.kis.civsim.display;
 
 import pl.edu.agh.kis.civsim.configreader.ConfigReaderSingleton;
 import processing.core.PApplet;
+import processing.core.PImage;
 
-/**
- * The purpose of this type is to
- */
 public class Visualization extends PApplet {
     private int windowWidth;
     private int windowHeight;
+    private PImage mapImg;
+    private String mapImgPath;
 
     {
         ConfigReaderSingleton cfg = ConfigReaderSingleton.getInstance();
         this.windowHeight = cfg.getIntProperty("windowHeight");
         this.windowWidth = cfg.getIntProperty("windowWidth");
+        this.mapImgPath = cfg.getStringProperty("mapImg");
     }
 
     public void visualize() {
@@ -32,11 +33,11 @@ public class Visualization extends PApplet {
 
     @Override
     public void setup() {
-        fill(120,50,240);
+        this.mapImg = loadImage(this.mapImgPath);
     }
 
     @Override
     public void draw(){
-        ellipse(width/2,height/2,second(),second());
+        image(this.mapImg, 0, 0);
     }
 }
