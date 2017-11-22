@@ -1,19 +1,33 @@
 package pl.edu.agh.kis.civsim.display;
 
+import pl.edu.agh.kis.civsim.configreader.ConfigReaderSingleton;
 import processing.core.PApplet;
 
 /**
  * The purpose of this type is to
  */
 public class Visualization extends PApplet {
+    private int windowWidth;
+    private int windowHeight;
+
+    public Visualization(int windowWidth, int windowHeight) {
+        this.windowWidth = windowWidth;
+        this.windowHeight = windowHeight;
+    }
+
+    public void visualize() {
+        PApplet.main("pl.edu.agh.kis.civsim.display.Visualization");
+    }
 
     public static void main(String[] args) {
-        PApplet.main("pl.edu.agh.kis.civsim.display.Visualization");
+        ConfigReaderSingleton cfg = ConfigReaderSingleton.getInstance();
+        Visualization visualization = new Visualization(cfg.getIntProperty("windowWidth"),cfg.getIntProperty("windowHeight"));
+        visualization.visualize();
     }
 
     @Override
     public void settings() {
-        size(640, 480);
+        size(this.windowWidth, this.windowHeight);
     }
 
     @Override
