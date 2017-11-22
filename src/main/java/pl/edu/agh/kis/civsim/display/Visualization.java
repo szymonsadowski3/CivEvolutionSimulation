@@ -54,7 +54,13 @@ public class Visualization extends PApplet {
 
     public void dispCellBuild(Map<Location, int[]> build) {
         for (Map.Entry<Location, int[]> entry: build.entrySet()) {
-            System.out.println(convertToRgb(entry.getValue()[0]));
+            System.out.print(entry.getKey());
+
+            for (int rgb: entry.getValue()) {
+                System.out.print(convertToRgb(rgb) + "| ");
+            }
+
+            System.out.println();
         }
     }
 
