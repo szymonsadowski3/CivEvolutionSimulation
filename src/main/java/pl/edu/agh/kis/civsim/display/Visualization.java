@@ -10,18 +10,18 @@ public class Visualization extends PApplet {
     private int windowWidth;
     private int windowHeight;
 
-    public Visualization(int windowWidth, int windowHeight) {
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
+    {
+        ConfigReaderSingleton cfg = ConfigReaderSingleton.getInstance();
+        this.windowHeight = cfg.getIntProperty("windowHeight");
+        this.windowWidth = cfg.getIntProperty("windowWidth");
     }
 
     public void visualize() {
-        PApplet.main("pl.edu.agh.kis.civsim.display.Visualization");
+        Visualization.main("pl.edu.agh.kis.civsim.display.Visualization");
     }
 
     public static void main(String[] args) {
-        ConfigReaderSingleton cfg = ConfigReaderSingleton.getInstance();
-        Visualization visualization = new Visualization(cfg.getIntProperty("windowWidth"),cfg.getIntProperty("windowHeight"));
+        Visualization visualization = new Visualization();
         visualization.visualize();
     }
 
