@@ -1,16 +1,22 @@
 package pl.edu.agh.kis.civsim.world;
 
+import java.util.Collection;
+
 public class Cell {
 
     private Terrain terrainType = null;
 
     private float terrainValue;
 
-    private Terrain[] locations;
+    private Collection<Terrain> locations;
 
     private boolean inhabited;
 
-    //TODO: konstruktor
+    public Cell(Collection<Terrain> locations) {
+        this.locations = locations;
+        determineTerrain();
+        evaluate();
+    }
 
 
     public boolean isInhabited() {
@@ -45,7 +51,22 @@ public class Cell {
     }
 
     private void determineTerrain(){
-        //TODO: wywołanie jak tylko dostanie podtereny
+        //TODO: brzydkie w ciul. może TerrainFactory?
+
+        int landCount = 0;
+        int waterCount = 0;
+
+        for (Terrain terr : locations) {
+            if (terr instanceof Land)
+                landCount++;
+            else
+                waterCount++;
+        }
+
+        if (landCount > waterCount)
+            this.terrainType = new Land();
+        else
+            this.terrainType = new Water();
     }
 
     private void evaluate(){

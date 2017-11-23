@@ -11,6 +11,9 @@ public class Land implements Terrain {
         this.loc = loc;
     }
 
+    public Land() {
+    }
+
     public void develop() {
     }
 }

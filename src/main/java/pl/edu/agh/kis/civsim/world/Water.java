@@ -8,4 +8,8 @@ public class Water implements Terrain {
         this.loc = loc;
     }
 
+    public Water() {
+    }
+
+
 }

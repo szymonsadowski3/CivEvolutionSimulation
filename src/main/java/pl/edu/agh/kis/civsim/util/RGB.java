@@ -11,6 +11,12 @@ public class RGB {
         this.blue = blue;
     }
 
+    public RGB(int pixel) {
+        this.red = (pixel >> 16) & 0xff;
+        this.blue = (pixel >> 8) & 0xff;
+        this.green = (pixel) & 0xff;
+    }
+
     public float getRed() {
         return red;
     }
